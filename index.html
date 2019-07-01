@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        font-weight: bold;
+        height: 90vh;
+        background-color: rgb(50, 115, 201);
+        margin: auto;
+        width: 80%;
+        padding-left: 40px;
+        padding-top: 20px;
+      }
+
+      .container h2 {
+        color: white;
+      }
+
+
+      #dpi {
+          color: #FFF;
+          margin-top: 50px;
+          height: 40%;
+          
+      }
+
+      .child {
+        width: 48%;
+        height: 100%;
+        border: 2px solid wheat;
+        float: left;
+        margin: auto;
+        text-align: center;
+        border-radius: 5px;
+      }
+
+      .wrapper {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="child">
+          <h2>Create a person here</h2>
+          <form>
+            <input name="p" id="male" type="radio" />Male
+            <input name="p" id="female" type="radio" />Female <br /><br /><br />
+
+            <input type="text" placeholder="name" id="named" /> <br /><br />
+            <button type="button" id="btn">Create</button>
+          </form>
+        </div>
+
+        <div class="child" id="dp">
+            <h2>Your person shows here</h2>
+            <div id="dpi"></div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    "use strict";
+    class Person {
+      constructor(name) {
+        this.pname = name;
+        this.eyes = 2;
+        this.ears = 2;
+      }
+    }
+
+    class Man extends Person {
+      constructor(name) {
+        super(name);
+        this.gender = "man";
+        this.voice = "deep";
+        this.beards = true;
+      }
+    }
+
+    class Woman extends Person {
+      constructor(name) {
+        super(name);
+        this.gender = "woman";
+        this.voice = "light";
+        this.beards = true;
+      }
+    }
+
+    
+    // var MyFemale = new Woman("tope");
+    // window.addEventListener('load', function doy () {
+    //     console.log(MyFemale)
+    // });
+
+    
+    btn.addEventListener("click", test);
+
+    function test() {
+
+        var np = "";
+     
+      if (male.checked && named.value) {
+         
+        np = new Man(named.value);
+      
+          dpi.innerHTML = `You created a ${np.gender} <br><br> Name: ${np.pname} <br><br> Voice: ${np.voice}  <br><br> Eyes: ${np.eyes}  <br><br> Beards: ${np.beards}`;
+
+      } else if (female.checked && named.value) {
+
+        np = new Woman(named.value);
+      
+      dpi.innerHTML = `You created a ${np.gender} <br><br> Name: ${np.pname} <br><br> Voice: ${np.voice}  <br><br> Eyes: ${np.eyes}  <br><br> Beards: ${np.beards}`;
+
+      }
+      named.value = "";
+    }
+  </script>
+</html>
